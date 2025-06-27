@@ -9,8 +9,6 @@ function ListarCategorias() {
 
 	const [categorias, setCategorias] = useState<Categoria[]>([])
 
-	const token = ''
-
 	async function buscarCategorias() {
 		await listar('/categorias', setCategorias)
 	}
@@ -29,7 +27,7 @@ function ListarCategorias() {
 					size={80}
 					speedMultiplier={2}
 					aria-label="Pacman-loading"
-					className="mx-auto my-8"
+					className="mx-auto my-16"
 				/>
 			)}
 			<div className="flex justify-center bg-slate-100 pt-4">

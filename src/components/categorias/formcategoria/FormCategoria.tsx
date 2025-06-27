@@ -13,8 +13,6 @@ function FormCategoria() {
 
   const { id } = useParams<{ id: string }>();
 
-  const token = '';
-
   async function buscarPorId(id: string) {
     try {
       await listar(`/categorias/${id}`, setCategoria)
