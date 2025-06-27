@@ -43,7 +43,7 @@ Funcionalidades:
 
 ### 📱 Menu Mobile
 
-- Veja detalhes de funcionamento, acessibilidade, animações e decisões de UX em [`docs/MENU_MOBILE.md`](./MENU_MOBILE.md).
+- Veja detalhes de funcionamento, acessibilidade, animações e decisões de UX em [`docs/MENU_MOBILE.md`](./docs/MENU_MOBILE.md).
 
 <br />
 
