@@ -1,0 +1,36 @@
+/* Importa as configurações do Tailwind CSS */
+@import "tailwindcss";
+
+/*
+  Animação fade-in
+  - Faz o elemento aparecer suavemente, aumentando a opacidade de 0 para 1
+*/
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/*
+  Animação slide-in
+  - Faz o elemento deslizar de cima para baixo ao aparecer
+*/
+@keyframes slide-in {
+  from { transform: translateY(-32px); }
+  to { transform: translateY(0); }
+}
+
+/*
+  Classe utilitária para aplicar a animação fade-in
+  - Use className="animate-fade-in" no elemento desejado
+*/
+.animate-fade-in {
+  animation: fade-in 0.3s;
+}
+
+/*
+  Classe utilitária para aplicar a animação slide-in
+  - Use className="animate-slide-in" no elemento desejado
+*/
+.animate-slide-in {
+  animation: slide-in 0.3s;
+}
