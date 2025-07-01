@@ -87,7 +87,7 @@ function FormCategoria() {
             type="text"
             placeholder="Categoria"
             name='tipo'
-            className="border-2 border-slate-700 rounded p-2 utral-800 text-base md:text-lg"
+            className="bg-white border-2 border-slate-700 rounded p-2 utral-800 text-base md:text-lg"
             required
             value={categoria.tipo}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
