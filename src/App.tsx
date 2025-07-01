@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import DeletarCategoria from './components/categorias/deletarcategorias/DeletarCategoria';
@@ -6,7 +7,9 @@ import ListarCategorias from './components/categorias/listarcategorias/ListarCat
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home';
-import { useState } from 'react';
+import DeletarProduto from './components/produtos/deletarprodutos/DeletarProduto';
+import FormProduto from './components/produtos/formproduto/FormProduto';
+import ListarProdutos from './components/produtos/listarprodutos/ListarProdutos';
 
 /** 
  * Tipo (type) para controlar o estado do Menu Mobile (aberto ou fechado)
@@ -42,28 +45,36 @@ function App() {
   return (
     // BrowserRouter permite navegação entre páginas sem recarregar o site
       <BrowserRouter>
-        {/* Navbar fixa no topo, recebe estado e funções de controle do menu */}
-        <Navbar 
-          menuState={menuState} // Menu Mobile aberto ou fechado?
-          onMenuToggle={toggleMenu} // Função para abrir e fechar o Menu Mobile
-          onMenuClose={closeMenu} // Função fechar o Menu Mobile (botão X)
-        />
-        {/* Conteúdo principal da página, com padding-top para não ficar atrás da Navbar e 
-            padding-bottom para não ficar atrás do Footer */}
-        <div className={`min-h-[90vh] pt-16 bg-slate-100 ${shouldShowFooter() ? 'pb-20' : ''}`}>
-          <Routes>
-            {/* Definição das rotas do app, cada caminho renderiza um componente */}
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/categorias" element={<ListarCategorias />} />
-            <Route path="/cadcategoria" element={<FormCategoria />} />
-            <Route path="/editarcategoria/:id" element={<FormCategoria />} />
-            <Route path="/deletarcategoria/:id" element={<DeletarCategoria />} />
-          </Routes>
-        </div>
-        {/* Footer fixo na base da tela, só aparece quando o Menu Mobile está fechado */}
-        <div className={shouldShowFooter() ? 'fixed bottom-0 left-0 z-50 w-full' : 'hidden'}>
-          <Footer />
+        {/* Container principal */}
+        <div className="min-h-screen flex flex-col">
+          {/* Navbar - fixa apenas no mobile */}
+          <div className="md:relative">
+            <Navbar 
+              menuState={menuState} // Menu Mobile aberto ou fechado?
+              onMenuToggle={toggleMenu} // Função para abrir e fechar o Menu Mobile
+              onMenuClose={closeMenu} // Função fechar o Menu Mobile (botão X)
+            />
+          </div>
+          {/* Conteúdo principal da página */}
+          <div className="flex-1 bg-slate-100 md:pt-0 md:pb-0 max-h-[calc(100vh-64px)] overflow-auto md:max-h-full">
+            <Routes>
+              {/* Definição das rotas do app, cada caminho renderiza um componente */}
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/categorias" element={<ListarCategorias />} />
+              <Route path="/cadcategoria" element={<FormCategoria />} />
+              <Route path="/editarcategoria/:id" element={<FormCategoria />} />
+              <Route path="/deletarcategoria/:id" element={<DeletarCategoria />} />
+              <Route path="/produtos" element={<ListarProdutos />} />
+              <Route path="/cadproduto" element={<FormProduto />} />
+              <Route path="/editarproduto/:id" element={<FormProduto />} />
+              <Route path="/deletarproduto/:id" element={<DeletarProduto />} />
+            </Routes>
+          </div>
+          {/* Footer - fixo apenas no mobile */}
+          <div className={`${shouldShowFooter() ? 'block' : 'hidden'} md:static`}>
+            <Footer />
+          </div>
         </div>
       </BrowserRouter>
     

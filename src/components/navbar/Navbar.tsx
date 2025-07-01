@@ -57,9 +57,9 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
 
     return (
         <>
-            {/* Navbar fixa no topo, visível em todas as telas */}
-            <div className='fixed top-0 left-0 z-50 w-full bg-slate-800 text-white flex justify-center py-4 md:py-2'>
-                <div className="container mx-6 mt-2 flex items-center justify-between text-lg">
+            {/* Navbar - fixa apenas no mobile */}
+            <div className='fixed md:relative top-0 left-0 z-50 w-full bg-slate-800 text-white flex justify-center py-4 md:py-2'>
+                <div className="container mx-6 mt-2 md:mt-0 flex items-center justify-between text-lg">
                     {/* Logo da loja, sempre visível, redireciona para Home */}
                     <Link to='/home'>
                         <img
@@ -87,7 +87,7 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
 
                     {/* Menu de navegação desktop/tablet */}
                     <div className='hidden md:flex items-center gap-4 py-4'>
-                        <span>Produtos</span>
+                        <Link to='/produtos' className='hover:underline'>Produtos</Link>
                         <Link to='/categorias' className='hover:underline'>Categorias</Link>
                         <Link to='/cadcategoria' className='hover:underline'>Cadastrar Categoria</Link>
                         <UserIcon size={32} weight='bold' />
@@ -146,10 +146,10 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
                         <Link to='/home' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">
                             Home
                         </Link>
-                        <Link to='' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">
+                        <Link to='produtos' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">
                             Produtos
                         </Link>
-                        <Link to='' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">
+                        <Link to='/cadproduto' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">
                             Cadastrar Produto
                         </Link>
                         <Link to='/categorias' onClick={handleMenuClose} className="py-2 text-white hover:text-gray-300">

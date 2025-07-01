@@ -1,10 +1,14 @@
-﻿function Home() {
+﻿import ListarProdutosHome from "../../components/produtos/listarprodutos/ListarProdutosHome"
+import ModalProduto from "../../components/produtos/modalprodutos/ModalProduto"
+
+function Home() {
     return (
-        
+        <>
             <div className="
                 bg-slate-800 
                 flex 
                 justify-center
+                py-8 md:py-16
                 ">
                 <div className='
                     container 
@@ -13,6 +17,7 @@
                     text-white
                     gap-8 md:gap-0
                     px-4
+                    py-20 md:py-0
                     '>
                     <div className="
                         flex 
@@ -32,11 +37,9 @@
                         <p className='text-base md:text-xl'>Aqui você encontra os melhores Games!</p>
 
                         <div className="flex justify-around gap-4">
-                            <div className='rounded text-white 
-                                            border-white border-solid border-2 py-2 px-4'
-                            >
-                                Novo Produto
-                            </div>
+                            <div className="hidden md:flex justify-around gap-4">
+								<ModalProduto />
+							</div>
                         </div>
                     </div>
 
@@ -49,7 +52,10 @@
                     </div>
                 </div>
             </div>
-        
+            <div className="py-2 md:py-0">
+                <ListarProdutosHome />
+            </div>
+        </>
     )
 }
 
