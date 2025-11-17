@@ -1,12 +1,17 @@
 ﻿import { PencilIcon, TrashIcon } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto'
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 
 interface CardProdutoProps {
 	produto: Produto
 }
 
 function CardProdutos({ produto }: Readonly<CardProdutoProps>) {
+
+	const { adicionarProduto } = useContext(CartContext);
+
 	return (
 		<div className="flex flex-col justify-between my-4 sm:my-6 md:my-4 lg:my-10 overflow-hidden bg-white rounded-lg">
 			<div className="flex items-end justify-end pt-2 pr-2">
@@ -50,6 +55,7 @@ function CardProdutos({ produto }: Readonly<CardProdutoProps>) {
 			<div className="flex flex-wrap">
 				<button
 					className="flex items-center justify-center w-full py-2 text-white bg-teal-600 hover:bg-teal-900"
+					onClick={() => adicionarProduto(produto)}
 				>
 					Comprar
 				</button>
