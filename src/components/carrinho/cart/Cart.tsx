@@ -128,7 +128,7 @@ function Cart() {
 								</div>
 
 								<button
-									className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors"
+									className="w-full bg-teal-600 hover:bg-teal-900 text-white font-semibold py-3 rounded-lg transition-colors"
 									type="button"
 									onClick={limparCart}
 								>
