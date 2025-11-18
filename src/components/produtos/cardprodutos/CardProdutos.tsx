@@ -54,7 +54,7 @@ function CardProdutos({ produto }: Readonly<CardProdutoProps>) {
 			</div>
 			<div className="flex flex-wrap">
 				<button
-					className="flex items-center justify-center w-full py-2 text-white bg-teal-600 hover:bg-teal-900"
+					className="flex items-center justify-center w-full py-2 text-white bg-teal-500 hover:bg-teal-900"
 					onClick={() => adicionarProduto(produto)}
 				>
 					Comprar

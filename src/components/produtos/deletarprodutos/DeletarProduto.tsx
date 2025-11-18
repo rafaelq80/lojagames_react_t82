@@ -63,13 +63,13 @@ function DeletarProduto() {
                 <p className='p-4 md:p-8 text-xl md:text-3xl bg-white h-full'>{produto.nome}</p>
                 <div className="flex flex-row">
                     <button
-                        className='text-slate-100 bg-red-500 hover:bg-red-700 w-full py-2 text-base md:text-lg'
+                        className='text-slate-100 bg-red-400 hover:bg-red-700 w-full py-2 text-base md:text-lg'
                         onClick={retornar}
                     >
                         Não
                     </button>
                     <button
-                        className='w-full text-slate-100 bg-teal-600 hover:bg-teal-800 flex items-center justify-center text-base md:text-lg'
+                        className='w-full text-slate-100 bg-teal-500 hover:bg-teal-900 flex items-center justify-center text-base md:text-lg'
                         onClick={deletarProduto}
                     >
                         {isLoading ?

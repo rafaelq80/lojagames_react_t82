@@ -30,7 +30,7 @@ function ListarCategorias() {
 					className="mx-auto my-28"
 				/>
 			)}
-			<div className="flex justify-center bg-slate-100 pt-4">
+			<div className="flex justify-center bg-slate-100 py-8">
 				<div className="container flex flex-col mx-4">
 					{(!isLoading && categorias.length === 0) && (
 						<div className="text-3xl text-center my-8">
@@ -38,7 +38,7 @@ function ListarCategorias() {
 						</div>
 					)}
 
-					<div className="grid grid-cols-1 gap-x-2 gap-y-4 my-22 md:my-0 sm:gap-x-6 sm:gap-y-2 lg:gap-x-4 lg:gap-y-2 md:grid-cols-3">
+					<div className="grid grid-cols-1 gap-x-2 gap-y-4 my-22 md:my-0 sm:gap-x-6 sm:gap-y-2 lg:gap-4 md:gap-4 md:grid-cols-3">
 						{categorias.map((categoria) => (
 							<CardCategorias
 								key={categoria.id}
