@@ -21,33 +21,40 @@ function ListarCategorias() {
 	return (
 		<>
 			{isLoading && (
-				<PacmanLoader
-					color="#0D9488"
-					margin={0}
-					size={80}
-					speedMultiplier={2}
-					aria-label="Pacman-loading"
-					className="mx-auto my-16"
-				/>
+				<div className="flex justify-center items-center min-h-[calc(100vh-8rem)] w-full overflow-x-hidden">
+					<PacmanLoader
+						color="#0D9488"
+						margin={0}
+						size={80}
+						speedMultiplier={2}
+						aria-label="Pacman-loading"
+					/>
+				</div>
 			)}
-			<div className="flex justify-center bg-slate-100 pt-4">
-				<div className="px-4 my-4 container flex flex-col">
-					{(!isLoading && categorias.length === 0) && (
-						<div className="text-3xl text-center my-8">
-							Nenhum produto foi encontrado
-						</div>
-					)}
+			
+			{!isLoading && (
+				<div className="flex justify-center bg-slate-100 w-full min-h-[calc(100vh-8rem)] overflow-x-hidden">
+					<div className="w-full max-w-8xl mt-8 px-4 sm:px-6 md:px-8 lg:px-12 py-4 md:py-6 box-border">
+						
+						{categorias.length === 0 && (
+							<div className="text-2xl md:text-3xl text-center text-slate-700 my-8 md:my-16">
+								Nenhuma categoria foi encontrada
+							</div>
+						)}
 
-					<div className="container my-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 pb-4 md:pb-8">
-						{categorias.map((categoria) => (
-							<CardCategorias
-								key={categoria.id}
-								categoria={categoria}
-							/>
-						))}
+						{categorias.length > 0 && (
+							<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+								{categorias.map((categoria) => (
+									<CardCategorias
+										key={categoria.id}
+										categoria={categoria}
+									/>
+								))}
+							</div>
+						)}
 					</div>
 				</div>
-			</div>
+			)}
 		</>
 	)
 }

@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import DeletarCategoria from './components/categorias/deletarcategorias/DeletarCategoria';
 import FormCategoria from './components/categorias/formcategoria/FormCategoria';
 import ListarCategorias from './components/categorias/listarcategorias/ListarCategorias';
@@ -50,7 +49,7 @@ function App() {
         />
         {/* Conteúdo principal da página, com padding-top para não ficar atrás da Navbar e 
             padding-bottom para não ficar atrás do Footer */}
-        <div className={`min-h-[90vh] pt-16 bg-slate-100 ${shouldShowFooter() ? 'pb-20' : ''}`}>
+        <div className={`min-h-[90vh] w-full pt-16 bg-slate-100 ${shouldShowFooter() ? 'pb-24 md:pb-20' : ''}`}>
           <Routes>
             {/* Definição das rotas do app, cada caminho renderiza um componente */}
             <Route path="/" element={<Home />} />
