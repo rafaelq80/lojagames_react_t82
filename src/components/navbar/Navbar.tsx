@@ -1,6 +1,6 @@
 import { ListIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon, XIcon } from "@phosphor-icons/react";
-import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { ChangeEvent, FormEvent, useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 
 /** 
@@ -31,6 +31,8 @@ interface NavbarProps {
 
 function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>) {
 
+    const navigate = useNavigate()
+    
     const { quantidadeItems } = useContext(CartContext)
 
     /**
@@ -44,6 +46,18 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
      *  
     */ 
     const menuRef = useRef<HTMLDivElement>(null);
+
+    const [nome, setNome] = useState<string>("")
+
+	function handleBuscarProdutos(e: ChangeEvent<HTMLInputElement>){
+		setNome(e.target.value)
+	}
+
+	function buscarProdutos(e: FormEvent<HTMLFormElement>){
+		e.preventDefault()
+		navigate(`/consultarnome/${nome}`)
+		setNome('')
+	}
     
     /** 
      * Função Handler (função responsável por responder a eventos disparados 
@@ -75,13 +89,18 @@ function Navbar({ menuState, onMenuToggle, onMenuClose }: Readonly<NavbarProps>)
 
                     {/* Barra de busca (aparece apenas no desktop/tablet) */}
                     <div className="relative flex w-2/5 items-center justify-center text-black max-md:hidden">
-                        <form className="flex w-full items-center justify-center">
+                        <form 
+                            className="flex w-full items-center justify-center"
+                            onSubmit={buscarProdutos}    
+                        >
                             <input className="h-9 w-10/12 rounded-lg bg-white px-4 py-4 focus:outline-none"
                                 type="search"
                                 placeholder="Pesquisar produto"
                                 id="busca"
                                 name="busca"
                                 required
+                                value={nome}
+								onChange={(e: ChangeEvent<HTMLInputElement>) => handleBuscarProdutos(e)}
                             />
                             <button type="submit" className="ms-2 h-9 w-9 rounded-lg border border-teal-700 bg-teal-500 p-2.5 text-sm font-medium text-white hover:bg-teal-900">
                                 <MagnifyingGlassIcon size={14} weight="bold"/>

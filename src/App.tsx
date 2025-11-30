@@ -12,6 +12,7 @@ import FormProduto from "./components/produtos/formproduto/FormProduto"
 import ListarProdutos from "./components/produtos/listarprodutos/ListarProdutos"
 import { CartProvider } from "./contexts/CartContext"
 import Cart from "./components/carrinho/cart/Cart"
+import ListarProdutosPorNome from "./components/produtos/listarprodutospornome/ListarProdutosPorNome"
 
 /**
  * Tipo (type) para controlar o estado do Menu Mobile (aberto ou fechado)
@@ -73,7 +74,8 @@ function App() {
 							<Route path="/cadproduto" element={<FormProduto />} />
 							<Route path="/editarproduto/:id" element={<FormProduto />} />
 							<Route path="/deletarproduto/:id" element={<DeletarProduto />} />
-              <Route path="/cart" element={<Cart />} />
+              				<Route path="/cart" element={<Cart />} />
+							<Route path="/consultarnome/:nome" element={<ListarProdutosPorNome />} />
 						</Routes>
 					</div>
 					{/* Footer - fixo apenas no mobile */}

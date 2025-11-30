@@ -8,7 +8,7 @@ interface CardProdutosProps {
 
 function CardCart({ item }: CardProdutosProps) {
 
-    const { adicionarItem, removerItem } = useContext(CartContext)
+    const { adicionarItem, removerItem, removerProduto } = useContext(CartContext)
 
     return (
         <div className='flex gap-4 bg-white rounded-lg p-4 shadow-sm border border-gray-200'>
@@ -62,7 +62,7 @@ function CardCart({ item }: CardProdutosProps) {
 
                     <button 
                         className='p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors'
-                        onClick={() => removerItem(item.id)}
+                        onClick={() => removerProduto(item.id)}
                         title="Remover produto"
                     >
                         <TrashIcon size={20} />
